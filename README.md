@@ -18,3 +18,10 @@ $ mysql -u user blog < blog_dump.sql
 ```
 
 Then copy the `config.yml.dist` file to `config.yml` and fill in the database credentials.
+
+The login credentials for the existing test user are:
+
+```
+username: user
+password: password
+```
