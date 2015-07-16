@@ -1,0 +1,33 @@
+{# render post list #}
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class='container'>
+    <ul class='floating-container'>
+        {% for post in posts %}
+            <li class='post-list-item'>
+                <div class='cf'>
+                    <span class='post-user'>
+                        <div class='h3'>{{post.username|e}}</div>
+                        <div class='h5'>Created: {{post.created|date("m/d/Y h:i:s a")}}</div>
+                    </span>
+                    <span class='post-item'>
+                        <div class='h3'>{{post.subject|e}}</div>
+                        <div class='post-body'>{{post.body|e}}</div>
+                    </span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class='floating-container post-form'>
+        <form action="{{ path('posts') }}" name='create_post' method="post">
+            <p><label>New Post</label></p>
+            <div class='form-container'>
+                {{ form_widget(form) }}
+                <p><input type="submit" value="Create Post"></p>
+            </div>
+        </form>
+        
+    </div>
+</div>
+{% endblock %}

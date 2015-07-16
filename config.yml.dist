@@ -1,0 +1,8 @@
+db.options:
+    dbname: blog
+    user: username
+    password: password
+    host: localhost
+    driver: pdo_mysql
+
+debug: false

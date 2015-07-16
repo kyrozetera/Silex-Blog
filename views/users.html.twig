@@ -1,0 +1,12 @@
+{# render user list #}
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class='container'>
+    <ul class='floating-container'>
+        {% for user in users %}
+            <li class='user-list-item'><div class='pad'></div><div class='user-item'>{{user.username|e}}</div></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

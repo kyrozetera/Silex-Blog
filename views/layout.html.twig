@@ -1,0 +1,24 @@
+{# layout template #}
+<!DOCTYPE HTML>
+<html lang='en'>
+    <head>
+        <link rel='stylesheet' href='{{ app.request.basepath }}/css/core.css' />
+        <title>The Blog</title>
+    </head>
+    <body>
+        <div class='header'><span>The Blog</span>
+            {% if is_granted('ROLE_USER') %}
+                {% set activeClass = '' %}
+                {% if app.request.attributes.get('_route')=='posts' %}
+                    {% set activeClass = 'class=active' %}
+                {% endif %}
+            <div class='user-header'>
+                <span>Welcome {{ app.security.token.user.username }} |</span>
+                <span><a {{ activeClass }} href="{{ path('posts') }}">Read/Add Posts</a> |</span>
+                <span><a href="{{ path('logout') }}">Log out</a></span>
+            </div>
+            {% endif %}
+        </div>
+        <div id='webpage'>{% block content %}{% endblock %}</div>
+    </body>
+</html>

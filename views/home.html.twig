@@ -1,0 +1,13 @@
+{# homepage template #}
+
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<div class='floating-container'>
+{% if is_granted('ROLE_USER') %}
+    <span>Welcome to The Blog. (Isn't it glorious?) Navigate using the menu above.</span>
+{% endif %}
+</div>
+
+{% endblock  %}
