@@ -20,25 +20,25 @@ abstract class Model
     }
     
     /**
- * @param array $fields key=>value pairs to insert
- *
- * @return int inserted id
- */
-public function insert($fields,$load=false)
-{
-        if (!is_array($fields) || empty($fields))
-        {
+     * @param array $fields key=>value pairs to insert
+     *
+     * @return int inserted id
+     */
+    public function insert($fields,$load=false)
+    {
+        if (!is_array($fields) || empty($fields)) {
             return false;
         }
 
         $this->conn->insert($this->tableName, $fields);
         $insertedId = $this->conn->lastInsertId();
 
-        if($insertedId !== false && $load)
+        if($insertedId !== false && $load) {
             $this->getById($insertedId);
-        
+        }
+
         return $insertedId;
-}
+    }
     /**
      * load record into model by db identifier
      */
